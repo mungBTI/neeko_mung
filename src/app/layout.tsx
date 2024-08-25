@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "../lib/registry";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "NeekoMung",
+  title: "에브리멍멍",
   description: "강아지에 대한 정보를 모아모아",
 };
 
@@ -17,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
