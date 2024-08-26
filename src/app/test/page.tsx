@@ -1,26 +1,23 @@
 "use client";
-import React, { use, useEffect } from "react";
-import Image from "next/image";
+import React, { use, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import TestHome from "../components/testPage/TestHome";
+import Link from "next/link";
 
 const TestForm = () => {
   const params = useSearchParams();
+  const testType = params.get("title") || "defaultTestType";
+
+  const [pageNum, setPageNum] = useState(0);
 
   return (
-    <div className="flex flex-col justify-center items-center w-full md:w-[450px]">
-      <header className="text-3xl font-bold text-customBlue w-fit bold pt-5 pb-5">
-        에브리 멍멍
-      </header>
-      <div className="bg-cottonBlue w-full flex flex-col items-center p-4">
-        <Image src={""} alt={""}></Image>
-        <button>테스트 시작하기</button>
-        <span>참여자 수</span>
-        <div>테스트 공유하기</div>
-        <div>
-          <p>가장 많은 강아지 유형</p>
-        </div>
-      </div>
-      <p>현재 테스트 타입: {params}</p>
+    <div className="flex flex-col justify-center items-center w-full md:w-[450px] h-full">
+      <Link href="/">
+        <header className="text-3xl font-bold text-customBlue w-fit bold pt-5 pb-5">
+          에브리 멍멍
+        </header>
+      </Link>
+      <TestHome testType={testType} pageNum={pageNum} setPageNum={setPageNum} />
     </div>
   );
 };
