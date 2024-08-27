@@ -1,18 +1,22 @@
 import { testList } from "@/contents/testList";
+import { PopularTestProps } from "@/interface/questionInterface";
 import Image from "next/image";
 import Link from "next/link";
 
-const PopularTest = () => {
-  const topTest = testList.slice(0, 3);
+const PopularTest: React.FC<PopularTestProps> = ({ pageType }) => {
+  const testPack =
+    pageType === "home"
+      ? testList.sort((a, b) => b.liked - a.liked).slice(0, 3)
+      : testList;
   return (
     <div className="flex flex-col">
       <p className="text-xl p-2">인기 테스트</p>
-      <div className="flex">
-        {topTest.map((test) => {
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {testPack.map((test) => {
           return (
             <Link href={test.path} key={test.key}>
-              <div className="rounded-lg overflow-hidden border-2 border-[#90E0EF] m-1 h-[200px] w-[240px]">
-                <div className="w-[240px] h-[120px] overflow-hidden flex items-center justify-center">
+              <div className="rounded-lg overflow-hidden border-2 border-[#90E0EF] m-1 h-[200px] w-full md:w-[240px]">
+                <div className="w-full md:w-[240px] h-[120px] overflow-hidden flex items-center justify-center">
                   <Image
                     src={`/images/test/${test.img}`}
                     alt={test.title}

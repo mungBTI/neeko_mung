@@ -1,11 +1,17 @@
 import { postList } from "@/contents/postList";
+import { PostListPageProps } from "@/interface/questionInterface";
 import Image from "next/image";
-const RecentTop = () => {
+const PostListPage: React.FC<PostListPageProps> = ({ pageType }) => {
+  const postBundle = pageType === "posting" ? postList : postList.slice(0, 3);
   return (
     <div className="flex flex-col">
-      <p className="text-xl p-2">💡알아두면 쏠쏠한 양육 꿀팁💡</p>
+      {pageType === "posting" ? (
+        <p className="text-xl p-2">💡알아두면 쏠쏠한 양육 꿀팁 모음💡</p>
+      ) : (
+        <p className="text-xl p-2">💡알아두면 쏠쏠한 양육 꿀팁💡</p>
+      )}
       <div className="flex flex-col gap-2">
-        {postList.map((post) => {
+        {postBundle.map((post) => {
           return (
             <article
               className="flex width-[49rem] justify-center height-[12rem] items-center"
@@ -47,4 +53,4 @@ const RecentTop = () => {
     </div>
   );
 };
-export default RecentTop;
+export default PostListPage;
