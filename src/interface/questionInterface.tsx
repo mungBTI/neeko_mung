@@ -49,3 +49,6 @@ export interface PopularTestProps {
 export interface PostListPageProps {
   pageType: string;
 }
+export interface PostProps {
+  postId: number;
+}

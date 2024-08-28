@@ -5,7 +5,7 @@ export const navList = [
     key: 0,
     name: "테스트",
     query: "test",
-    icon: "chat4.svg",
+    icon: "people.svg",
   },
   {
     key: 1,
@@ -15,8 +15,8 @@ export const navList = [
   },
   {
     key: 2,
-    name: "게시판",
+    name: "소식통",
     query: "board",
-    icon: "people.svg",
+    icon: "chat4.svg",
   },
 ];
