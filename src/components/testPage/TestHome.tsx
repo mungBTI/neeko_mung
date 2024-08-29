@@ -40,33 +40,35 @@ const TestHome: React.FC<TestHomeProps> = ({
         <GoShareAndroid size={20} />
         {/* {shareCount} */}
       </div>
-      <div className="bg-white w-full flex flex-col p-4 rounded-lg">
-        <p className="mb-2">{testContent?.footerTitle}</p>
-        {testContent?.footerRank?.map((rank) => {
-          return (
-            <div key={rank.rank} className="flex gap-2 items-center m-1">
-              <p className="mr-4 w-12">{rank.rank}위</p>
-              <Image
-                src={`/test/mungbti/${rank.img}`}
-                alt={rank.title}
-                width={100}
-                height={100}
-                style={{
-                  borderRadius: "10px",
-                  objectFit: "cover",
-                  width: "20%",
-                  height: "5rem",
-                  marginRight: "1rem",
-                }}
-              ></Image>
-              <div className="flex flex-col justify-center w-full ">
-                <p className="text-center">{rank.title}</p>
-                <p className="text-center">{rank.desc}</p>
+      {testContent?.footerRank?.length > 0 && (
+        <div className="bg-white w-full flex flex-col p-4 rounded-lg">
+          <p className="mb-2">{testContent?.footerTitle}</p>
+          {testContent?.footerRank?.map((rank) => {
+            return (
+              <div key={rank.rank} className="flex gap-2 items-center m-1">
+                <p className="mr-4 w-12">{rank.rank}위</p>
+                <Image
+                  src={`/test/mungbti/${rank.img}`}
+                  alt={rank.title}
+                  width={100}
+                  height={100}
+                  style={{
+                    borderRadius: "10px",
+                    objectFit: "cover",
+                    width: "20%",
+                    height: "5rem",
+                    marginRight: "1rem",
+                  }}
+                ></Image>
+                <div className="flex flex-col justify-center w-full ">
+                  <p className="text-center">{rank.title}</p>
+                  <p className="text-center">{rank.desc}</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

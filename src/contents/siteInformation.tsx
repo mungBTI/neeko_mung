@@ -5,11 +5,11 @@ export const navList = [
     key: 0,
     name: "테스트",
     query: "test",
-    icon: "people.svg",
+    icon: "gamebar.svg",
   },
   {
     key: 1,
-    name: "포스팅",
+    name: "꿀팁 모음",
     query: "posting",
     icon: "easel.svg",
   },
@@ -18,5 +18,6 @@ export const navList = [
     name: "소식통",
     query: "board",
     icon: "chat4.svg",
+    //확성기 관련 svg로 대체
   },
 ];
