@@ -1,13 +1,31 @@
 "use client";
 import MDEditor from "@uiw/react-md-editor";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { PostProps } from "@/interface/questionInterface";
 import { postList } from "@/contents/postList";
+import path from "path";
 
 const PostPageForm: React.FC<PostProps> = ({ postId }) => {
   const postContent = postList.find((post) => post.key === postId);
   const [value, setValue] = useState("**Hello world!!!**");
+  useEffect(() => {
+    const mdFilePath = `@/contents/postMd/[${postId}].md`;
+
+    fetch(mdFilePath)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch markdown content");
+        }
+        return response.text();
+      })
+      .then((markdown) => {
+        setValue(markdown);
+      })
+      .catch((error) => {
+        console.error("Error fetching markdown file:", error);
+      });
+  }, []);
 
   return (
     <div className="w-full md:max-w-3xl md:mx-auto">
