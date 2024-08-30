@@ -22,12 +22,3 @@ export const calculateMbti = (answers: string[]): string => {
 
   return mbti;
 };
-export const calculate = (answers: string[], type: string): string => {
-  let result = "";
-
-  if (type === "mungbti") {
-    result = calculateMbti(answers);
-  }
-
-  return result;
-};

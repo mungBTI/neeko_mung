@@ -10,6 +10,7 @@ export interface AnserProps {
   text: string;
 }
 export interface questionContent {
+  img: string;
   questionId: string;
   title: string;
   questionList: AnserProps[];
@@ -29,7 +30,6 @@ export interface TestContent {
   path: string;
   footerTitle: string;
   questionContent: questionContent[];
-  footerRank: FooterRank[];
 }
 export interface TestHomeProps {
   testType: string;
@@ -42,6 +42,7 @@ export interface FinalPageProps {
   answers: string[];
   setAnswers: React.Dispatch<React.SetStateAction<string[]>>;
   type: string;
+  setPageNum: React.Dispatch<React.SetStateAction<number>>;
 }
 export interface PopularTestProps {
   pageType: string;
@@ -51,4 +52,17 @@ export interface PostListPageProps {
 }
 export interface PostProps {
   postId: number;
+}
+export interface NewsPostFormProps {
+  newsId: number;
+}
+
+// utils type
+export interface TestResultProps {
+  testid: number;
+  testKey: string;
+  result: TestResult[];
+}
+export interface TestResult {
+  [key: string]: any;
 }

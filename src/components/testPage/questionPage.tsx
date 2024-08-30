@@ -1,5 +1,7 @@
+"use client";
 import { QuestionPageProps } from "@/interface/questionInterface";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import { IoArrowBack } from "react-icons/io5";
 
@@ -10,10 +12,8 @@ const QuestionPage: React.FC<QuestionPageProps> = ({
   setPageNum,
   setAnswers,
 }) => {
-  const progressPercentage = (pageNum / testLength) * 100;
-
   const icons = [];
-
+  //진행도를 나타내는 발자국
   for (let i = 0; i < testLength; i++) {
     const iconSrc =
       i < pageNum ? "/icons/footprint_blue.svg" : "/icons/footprint_gray.svg";
@@ -22,6 +22,7 @@ const QuestionPage: React.FC<QuestionPageProps> = ({
     );
   }
 
+  //뒤로가기 함수
   const backPage = () => {
     setAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
@@ -31,25 +32,24 @@ const QuestionPage: React.FC<QuestionPageProps> = ({
     setPageNum((prev) => prev - 1);
   };
 
+  //답안 고르는 함수
   const selectAnswer = (selectedAnswer: string) => {
     setAnswers((prevAnswers) => [...prevAnswers, selectedAnswer]);
     setPageNum((prev) => prev + 1);
   };
 
+  //pageNum이 바뀔때마다 pageNum-1을 인덱스로 questionContent의 img를 가지고 옴
+  const [imgSrc, setImgSrc] = useState<string>("");
+  useEffect(() => {}, [pageNum]);
+
   return (
     <div className="bg-cottonBlue w-full flex flex-col items-center p-4 justify-around h-full">
-      <div id="progressBar" className="w-full bg-gray-200 h-4 rounded mb-2">
-        <div
-          className="bg-[#0077b6] h-4 rounded"
-          style={{ width: `${progressPercentage}%` }}
-        ></div>
-      </div>
       <div className="flex gap-1 justify-center w-full h-8">{icons}</div>
       <p className="text-lg font-bold m-2 text-center">
         {questionContent.title}
       </p>
       <Image
-        src={`/test/mungbti/${questionContent.questionId}.png`}
+        src={`/test/${questionContent.img}`}
         alt={questionContent.title}
         width={300}
         height={200}

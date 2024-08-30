@@ -53,10 +53,23 @@ main {
   flex-direction: column;
   align-items: center;
 }
+.highlight {
+  background-color: #90e0ef !important;
+  color: white !important;
+  border-radius: 50%;
+}
 
 @media (max-width: 599px) {
   body {
     height: 100%;
+  }
+  main {
+    width: 100%;
+    height: 100%;
+  }
+  .react-calendar {
+    padding: 1rem;
+    width: 100% !important;
   }
 }
 
@@ -64,11 +77,19 @@ main {
   body {
     height: 100%;
   }
+  .react-calendar {
+    padding: 1rem;
+    width: 100% !important;
+  }
 }
 
 @media (min-width: 900px) {
   body {
     height: 100%;
+  }
+  .react-calendar {
+    padding: 1rem;
+    width: 100%;
   }
 }
 
@@ -76,4 +97,44 @@ main {
   .text-balance {
     text-wrap: balance;
   }
+}
+.react-calendar__navigation__arrow {
+  display: none;
+}
+.react-calendar {
+  padding: 1rem;
+  width: 25rem;
+  border-radius: 10px;
+}
+.react-calendar__navigation {
+  text-align: center;
+}
+.react-calendar__navigation__label {
+  pointer-events: none;
+  cursor: default; /* 커서를 기본 화살표로 변경 (옵션) */
+}
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  margin: 0.5rem;
+  padding: 0.2rem;
+  background-color: #dcedff;
+  border-radius: 10px;
+}
+.highlight {
+  background-color: #4da4ff !important;
+  color: white !important;
+  border-radius: 50px !important;
+}
+.react-calendar__month-view__days__day {
+  padding: 0.2rem;
+}
+abbr {
+  text-decoration: none;
+}
+.news-table-tr > td {
+  padding: 0.5rem 0;
+}
+.title {
+  font-size: 1.1rem;
+  font-weight: bold;
 }

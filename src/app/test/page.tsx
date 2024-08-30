@@ -14,6 +14,7 @@ const TestForm = () => {
   const [answers, setAnswers] = useState<string[]>([]);
 
   const [pageNum, setPageNum] = useState(0);
+
   const testContent: TestContent | undefined = testList.find(
     (test) => test.key === testType
   );
@@ -54,7 +55,12 @@ const TestForm = () => {
       )}
 
       {pageNum === testLength + 1 && (
-        <FinalPage answers={answers} setAnswers={setAnswers} type={testType} />
+        <FinalPage
+          answers={answers}
+          setAnswers={setAnswers}
+          type={testType}
+          setPageNum={setPageNum}
+        />
       )}
     </div>
   );

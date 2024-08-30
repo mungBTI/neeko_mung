@@ -29,7 +29,11 @@ const Insider = () => {
                   alt={news.title}
                   width={240}
                   height={120}
-                  objectFit="cover"
+                  style={{
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                  }}
                 />
               </div>
               <p className="text-[1.4rem] font-extrabold my-2">{news.title}</p>

@@ -1,10 +1,14 @@
-import { navList, siteTitle } from "@/contents/siteInformation";
+"use client";
+import NewsPostForm from "@/components/news/NewsPostForm";
+import { siteTitle } from "@/contents/siteInformation";
 import Image from "next/image";
-import HomeMainBox from "../components/HomeMainBox";
-import Navbar from "../components/home/Navbar";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-export default function Home() {
+const News = () => {
+  const params = useSearchParams();
+  const newsId = params.get("newsId");
+  const newsIdNumber = Number(newsId);
   return (
     <main>
       <div className="mt-12 flex flex-col items-center h-full px-4 sm:px-0 w-full">
@@ -26,9 +30,10 @@ export default function Home() {
             alt="glasses"
           />
         </div>
-        <Navbar />
-        <HomeMainBox />
+        <NewsPostForm newsId={newsIdNumber} />
       </div>
     </main>
   );
-}
+};
+
+export default News;
