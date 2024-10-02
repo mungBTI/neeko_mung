@@ -1,8 +1,6 @@
 "use client";
 import React, { use, useEffect, useState } from "react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import { testList } from "@/contents/testList";
 import { GoShareAndroid } from "react-icons/go";
 import { TestHomeProps } from "@/interface/questionInterface";
 

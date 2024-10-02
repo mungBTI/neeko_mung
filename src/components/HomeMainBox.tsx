@@ -21,7 +21,7 @@ const HomeMainBox = () => {
           {pageType === "home" && (
             <div className="flex flex-col gap-4">
               <PopularTest pageType={pageType} />
-              <PostListPage pageType={pageType} />
+              {/* <PostListPage pageType={pageType} /> */}
             </div>
           )}
           {pageType === "test" && <PopularTest pageType={pageType} />}

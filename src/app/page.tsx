@@ -26,7 +26,7 @@ export default function Home() {
             alt="glasses"
           />
         </div>
-        <Navbar />
+        {/* <Navbar /> */}
         <HomeMainBox />
       </div>
     </main>

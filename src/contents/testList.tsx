@@ -346,7 +346,7 @@ export const testResult = [
       {
         id: 1,
         key: "foot2",
-        img: "footprint/cloudfoot.png",
+        img: "footprint/cloverfoot.png",
         title: "행운의 네잎클로버 모양",
         desc: "",
       },
@@ -426,7 +426,7 @@ export const testResult = [
     result: [
       {
         id: 0,
-        key: "in",
+        key: "",
         img: "",
         title: "인싸견",
         desc: "",
